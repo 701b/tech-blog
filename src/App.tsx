@@ -1,6 +1,9 @@
 import React from 'react'
 
-function App() {
+import './Styles/reset.css'
+import './Styles/global.scss'
+
+const App = () => {
   return <></>
 }
 
