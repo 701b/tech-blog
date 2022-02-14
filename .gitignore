@@ -24,3 +24,7 @@ yarn-error.log*
 
 # IDE
 .idea/
+
+# secret
+*secret*
+*Secret*
