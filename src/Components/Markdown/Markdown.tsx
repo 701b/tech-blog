@@ -2,6 +2,8 @@ import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import styled from 'styled-components'
 
+import CodeBlock from '@Components/Markdown/CodeBlock'
+
 interface MarkdownProps {
   markdownCode: string
 }
@@ -9,7 +11,9 @@ interface MarkdownProps {
 const Markdown = ({ markdownCode }: MarkdownProps) => {
   return (
     <MarkdownStyle>
-      <ReactMarkdown>{markdownCode}</ReactMarkdown>
+      <ReactMarkdown components={{ code: CodeBlock }}>
+        {markdownCode}
+      </ReactMarkdown>
     </MarkdownStyle>
   )
 }
@@ -311,6 +315,14 @@ const MarkdownStyle = styled.div`
     padding: 0 1em;
     color: #8b949e;
     border-left: 0.25em solid #30363d;
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  ol {
+    list-style: decimal;
   }
 
   ul,
