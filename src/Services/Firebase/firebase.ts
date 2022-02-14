@@ -10,7 +10,7 @@ const storage = getStorage(app)
 
 const categoriesRef = ref(database, 'categories')
 
-interface Writing {
+export interface WritingData {
   id: string
   title: string
   publishedDate: Date
@@ -26,7 +26,7 @@ interface WritingJson {
 function convertWritingJsonToData(
   writingId: string,
   writingJson: WritingJson
-): Writing {
+): WritingData {
   return {
     id: writingId,
     title: writingJson.title,
@@ -35,7 +35,7 @@ function convertWritingJsonToData(
   }
 }
 
-export async function readWritings(categoryName: string): Promise<Writing[]> {
+export async function readWritings(categoryName: string): Promise<WritingData[]> {
   const snapshot = await get(child(categoriesRef, categoryName))
 
   return Object.entries(snapshot.val()).map(([writingId, writingJson]) =>
